@@ -5,6 +5,5 @@ export async function POST(request: Request) {
   return NextResponse.json("Successfully logged in", {
     status: 200,
     headers,
-    url: "http://localhost:3000/",
   });
 }
