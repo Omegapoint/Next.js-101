@@ -25,7 +25,7 @@ export default function AddTodo() {
 
     setIsFetching(true);
 
-    const res = await fetch(`http://127.0.0.1:3500/todos`, {
+    const res = await fetch(`/todos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
