@@ -25,15 +25,9 @@
       "completed": false
     },
     {
+      "id": "67ce",
       "userId": 1,
-      "title": "hey hey",
-      "id": "5",
-      "completed": false
-    },
-    {
-      "id": "08a3",
-      "userId": 1,
-      "title": "test"
+      "title": "something"
     }
   ]
 }

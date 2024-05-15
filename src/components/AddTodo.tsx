@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState, useTransition, FormEvent, ChangeEvent } from "react";
 import { usePathname } from "next/navigation";
+import toast from "react-hot-toast";
 
 const initState: Partial<Todo> = {
   userId: 1,
@@ -35,7 +36,9 @@ export default function AddTodo() {
         title,
       }),
     });
-
+    if (res.ok) {
+      toast.success("Todo added");
+    }
     await res.json();
 
     setIsFetching(false);

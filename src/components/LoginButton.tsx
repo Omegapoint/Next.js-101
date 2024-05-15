@@ -21,8 +21,9 @@ export const LoginButton = () => {
   };
   return (
     <>
+      <h2>Press this button for very secure login</h2>
       <button className="p-2 rounded-sm bg-white" onClick={handleLoginClick}>
-        LoginButton
+        Login
       </button>
       {hasError && (
         <div>
