@@ -7,13 +7,16 @@ export const metadata: Metadata = {
 
 export default function Layout({
   children,
+  todos,
 }: Readonly<{
   children: React.ReactNode;
+  todos: React.ReactNode;
 }>) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center p-24">
       <Header />
       {children}
+      {todos}
     </main>
   );
 }

@@ -1,5 +1,9 @@
 import AddTodo from "@/components/AddTodo";
 
 export default function Page() {
-  return <AddTodo />;
+  return (
+    <>
+      <div>Test</div>
+    </>
+  );
 }

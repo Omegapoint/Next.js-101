@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async rewrites() {
+  /* async rewrites() {
     return [
       {
-        source: "/todos",
-        destination: "http://localhost:8000/todos",
+        source: "/external-api/:path*",
+        destination: "http://localhost:8000/:path*", // Proxy to Backend
       },
     ];
-  },
+  }, */
 };
 
 export default nextConfig;
