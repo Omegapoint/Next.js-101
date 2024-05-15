@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   const isAuthenticated = request.cookies.get("authenticated");
+
   if (isAuthenticated && isAuthenticated.value === "true") {
     return NextResponse.next();
   } else {

@@ -3,7 +3,8 @@ import React from "react";
 const Header = () => {
   return (
     <nav>
-      <a>Header</a>
+      <a>Add client</a>
+      <a>Add server</a>
     </nav>
   );
 };

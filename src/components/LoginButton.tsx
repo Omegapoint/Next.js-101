@@ -11,12 +11,12 @@ export const LoginButton = () => {
       setError(false);
     }
     const res = await fetch("/api/login", { method: "POST" });
-    if (res.ok) {
-      router.push("/");
-    } else {
+    if (!res.ok) {
       const responseJson = await res.json();
       setErrorMessage(responseJson.error);
       setError(true);
+    } else {
+      router.push("/");
     }
   };
   return (
