@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export const LoginButton = () => {
   const [hasError, setError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const router = useRouter();
   const handleLoginClick = async () => {
     if (hasError) {
@@ -13,6 +14,8 @@ export const LoginButton = () => {
     if (res.ok) {
       router.push("/");
     } else {
+      const responseJson = await res.json();
+      setErrorMessage(responseJson.error);
       setError(true);
     }
   };
@@ -23,7 +26,7 @@ export const LoginButton = () => {
       </button>
       {hasError && (
         <div>
-          <p className="text-red-500">An error occurred</p>
+          <p className="text-red-500">{errorMessage}</p>
         </div>
       )}
     </>
