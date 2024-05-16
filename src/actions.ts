@@ -3,24 +3,35 @@
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { getRandomUUID } from "./utils/generateUUID";
+import { FormState } from "./types/todos";
+import { revalidatePath } from "next/cache";
 
-export const createTodo = async (formData: FormData) => {
+export const createTodo = async (formState: FormState, formData: FormData) => {
   await new Promise((resolve) => setTimeout(resolve, 3000));
   const title = formData.get("title");
+  const currentToastId = getRandomUUID();
   try {
-    const res = await fetch("http://localhost:8000/todos", {
+    await fetch("http://localhost:8000/todos", {
       method: "POST",
       body: JSON.stringify({
         userId: 1,
         title: title,
         completed: false,
-        id: getRandomUUID(),
+        id: currentToastId,
       }),
     });
-    return await res.json();
+    formState = {
+      message: "Toast created:" + currentToastId,
+      status: 200,
+    };
+    revalidatePath("/add-server");
   } catch (error) {
-    throw new Error("Error occurred while posting todo");
+    formState = {
+      message: "Todo failed",
+      status: 500,
+    };
   }
+  return formState;
 };
 
 export const logOut = async () => {

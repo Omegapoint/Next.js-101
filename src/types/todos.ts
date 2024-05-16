@@ -4,3 +4,7 @@ export type Todo = {
   completed?: boolean;
   id: string;
 };
+export type FormState = {
+  message: string;
+  status: number;
+};

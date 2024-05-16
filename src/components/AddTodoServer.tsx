@@ -1,21 +1,32 @@
 "use client";
 
-import React, { ChangeEvent, useActionState, useState } from "react";
+import { useEffect, useRef } from "react";
 import { SubmitButton } from "./SubmitButton";
 import { createTodo } from "@/actions";
-const initialState = {
+import { useFormState } from "react-dom";
+import { toast } from "react-hot-toast";
+import { FormState } from "@/types/todos";
+
+const initialState: FormState = {
   message: "",
+  status: 0,
 };
 const AddTodoServer = () => {
-  //const [state, formAction] = useActionState(createTodo, initialState);
+  const [formState, action] = useFormState(createTodo, initialState);
+  const ref = useRef<HTMLFormElement>(null);
 
-  /*   const [inputValue, setInputValue] = useState<string>();
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const name = e.target.value;
-    setInputValue(name);
-  }; */
+  useEffect(() => {
+    if (formState.message) {
+      if (formState.status == 200) {
+        toast.success(formState.message);
+      } else {
+        toast.error(formState.message);
+      }
+      ref.current?.reset();
+    }
+  }, [formState.status, formState.message]);
   return (
-    <form className="flex gap-2 items-center" action={createTodo}>
+    <form ref={ref} className="flex gap-2 items-center" action={action}>
       <input
         type="text"
         id="title"
