@@ -1,9 +1,5 @@
-import AddTodo from "@/components/AddTodo";
+import AddTodoServer from "@/components/AddTodoServer";
 
 export default function Page() {
-  return (
-    <>
-      <div>Test</div>
-    </>
-  );
+  return <AddTodoServer />;
 }

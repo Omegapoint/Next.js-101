@@ -6,6 +6,6 @@ export const getTodos = async () => {
     const todos: Todo[] = await res.json();
     return todos;
   } catch (error) {
-    throw new Error(error as string);
+    throw new Error("Error occurred while fetching todos");
   }
 };

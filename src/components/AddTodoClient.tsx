@@ -1,63 +1,48 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState, useTransition, FormEvent, ChangeEvent } from "react";
-import { usePathname } from "next/navigation";
 import toast from "react-hot-toast";
+import { getRandomUUID } from "@/utils/generateUUID";
 
 const initState: Partial<Todo> = {
   userId: 1,
   title: "",
+  completed: false,
 };
 
-export default function AddTodo() {
-  const router = useRouter();
-  const pathname = usePathname();
+export default function AddTodoClient() {
   const [isPending, startTransition] = useTransition();
   const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState<string>("");
   const [data, setData] = useState(initState);
-
   const isMutating = isFetching || isPending;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const { userId, title } = data;
-
+    const { title, userId, completed } = data;
+    const generatedID = getRandomUUID();
+    setError("");
     setIsFetching(true);
 
-    const res = await fetch(`/todos`, {
+    const res = await fetch("http://localhost:8000/todos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userId,
-        title,
+        title: title,
+        userId: userId,
+        completed: completed,
+        id: generatedID,
       }),
     });
     if (res.ok) {
       toast.success("Todo added");
+    } else {
+      setError("We encountered an error during creating the todo");
+      setIsFetching(false);
     }
-    await res.json();
-
-    setIsFetching(false);
-
-    setData((prevData) => ({
-      ...prevData,
-      title: "",
-    }));
-
-    startTransition(() => {
-      if (pathname === "/add") {
-        router.push("/");
-      } else {
-        // Refresh the current route and fetch new data
-        // from the server without losing
-        // client-side browser or React state.
-        router.refresh();
-      }
-    });
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -85,15 +70,18 @@ export default function AddTodo() {
         placeholder="New Todo"
         autoFocus
       />
-
       <button
         type="submit"
-        className="p-2 text-xl rounded-2xl text-black border-solid border-black border-2 max-w-xs bg-green-500 hover:cursor-pointer hover:bg-green-400"
+        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
       >
         Submit
       </button>
     </form>
   );
 
-  return content;
+  return (
+    <>
+      {content} {error && <p className="text-red-500 mt-4">{error}</p>}
+    </>
+  );
 }

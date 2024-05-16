@@ -13,10 +13,12 @@ export default function Layout({
   todos: React.ReactNode;
 }>) {
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <>
       <Header />
-      {children}
-      {todos}
-    </main>
+      <main className="flex min-h-screen flex-col items-center p-24">
+        {children}
+        {todos}
+      </main>
+    </>
   );
 }

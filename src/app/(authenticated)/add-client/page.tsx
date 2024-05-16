@@ -1,6 +1,6 @@
 "use client";
-import AddTodo from "@/components/AddTodo";
+import AddTodoClient from "@/components/AddTodoClient";
 
 export default function Page() {
-  return <AddTodo />;
+  return <AddTodoClient />;
 }
