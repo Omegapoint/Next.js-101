@@ -33,10 +33,11 @@ const AddTodoServer = () => {
         id="title"
         name="title"
         required
-        className="text-2xl p-1 rounded-lg flex-grow w-full"
+        className="text-2xl p-1 rounded-lg flex-grow"
         placeholder="New Todo"
         autoFocus
       />
+
       <SubmitButton />
     </form>
   );

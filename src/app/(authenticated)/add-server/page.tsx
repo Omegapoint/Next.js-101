@@ -1,5 +1,5 @@
 import AddTodoServer from "@/components/AddTodoServer";
 
-export default function Page() {
+export default function AddTodoServerPage() {
   return <AddTodoServer />;
 }

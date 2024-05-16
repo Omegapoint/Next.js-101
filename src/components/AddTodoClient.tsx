@@ -54,8 +54,10 @@ export default function AddTodoClient() {
       [name]: e.target.value,
     }));
   };
-
-  const content = (
+  if (error) {
+    return <p className="text-red-500 mt-4">{error}</p>;
+  }
+  return (
     <form
       onSubmit={handleSubmit}
       className="flex gap-2 items-center "
@@ -81,11 +83,5 @@ export default function AddTodoClient() {
         </span>
       </button>
     </form>
-  );
-
-  return (
-    <>
-      {content} {error && <p className="text-red-500 mt-4">{error}</p>}
-    </>
   );
 }
