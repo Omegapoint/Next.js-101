@@ -1,23 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { ChangeEvent, useActionState, useState } from "react";
 import { SubmitButton } from "./SubmitButton";
-
+import { createTodo } from "@/actions";
+const initialState = {
+  message: "",
+};
 const AddTodoServer = () => {
-  /*   async function createInvoice(formData: FormData) {
-    "use server";
+  //const [state, formAction] = useActionState(createTodo, initialState);
 
-    const rawFormData = {
-      customerId: formData.get("customerId"),
-      amount: formData.get("amount"),
-      status: formData.get("status"),
-    };
-    console.log(rawFormData);
-    // mutate data
-    // revalidate cache
-  } */
+  /*   const [inputValue, setInputValue] = useState<string>();
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.value;
+    setInputValue(name);
+  }; */
   return (
-    <form className="flex gap-2 items-center">
+    <form className="flex gap-2 items-center" action={createTodo}>
       <input
         type="text"
         id="title"

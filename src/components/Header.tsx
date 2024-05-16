@@ -1,5 +1,5 @@
 "use client";
-import { logOut } from "@/app/actions";
+import { logOut } from "@/actions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
