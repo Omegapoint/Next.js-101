@@ -3,6 +3,7 @@
 import { useState, useTransition, FormEvent, ChangeEvent } from "react";
 import toast from "react-hot-toast";
 import { getRandomUUID } from "@/utils/generateUUID";
+import { FaPlus } from "react-icons/fa";
 
 const initState: Partial<Todo> = {
   userId: 1,
@@ -57,7 +58,7 @@ export default function AddTodoClient() {
   const content = (
     <form
       onSubmit={handleSubmit}
-      className="flex gap-2 items-center"
+      className="flex gap-2 items-center "
       style={{ opacity: !isMutating ? 1 : 0.7 }}
     >
       <input
@@ -66,7 +67,7 @@ export default function AddTodoClient() {
         name="title"
         value={data.title}
         onChange={handleChange}
-        className="text-2xl p-1 rounded-lg flex-grow w-full"
+        className="text-2xl p-1 rounded-lg flex-grow"
         placeholder="New Todo"
         autoFocus
       />
@@ -74,7 +75,10 @@ export default function AddTodoClient() {
         type="submit"
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
       >
-        Submit
+        <span className="flex items-center gap-2">
+          <FaPlus />
+          Add todo
+        </span>
       </button>
     </form>
   );
