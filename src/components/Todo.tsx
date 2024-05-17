@@ -6,7 +6,7 @@ import { useState, useTransition, ChangeEvent, MouseEvent } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 
-export default function Todo(todo: SimpleTodo) {
+export default function Todo(todo: Todo) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isFetching, setIsFetching] = useState(false);

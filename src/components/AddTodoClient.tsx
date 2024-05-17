@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { getRandomUUID } from "@/utils/generateUUID";
 import { FaPlus } from "react-icons/fa";
 
-const initState: Partial<SimpleTodo> = {
+const initState: Partial<Todo> = {
   userId: 1,
   title: "",
   completed: false,

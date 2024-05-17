@@ -1,4 +1,4 @@
-type SimpleTodo = {
+type Todo = {
   userId: number;
   title: string;
   completed?: boolean;

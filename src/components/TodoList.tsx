@@ -1,6 +1,6 @@
 import Todo from "./Todo";
 
-export default async function TodoList({ todos }: { todos: SimpleTodo[] }) {
+export default async function TodoList({ todos }: { todos: Todo[] }) {
   const sortedTodos = todos.reverse();
 
   return (
