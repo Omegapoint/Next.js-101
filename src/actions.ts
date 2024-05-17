@@ -21,16 +21,16 @@ export const createTodo = async (formState: FormState, formData: FormData) => {
       }),
     });
     formState = {
-      message: "Toast created:" + currentToastId,
-      status: 200,
+      message: "Toast created for " + title,
+      ok: true,
     };
-    revalidatePath("/add-server");
   } catch (error) {
     formState = {
-      message: "Todo failed",
-      status: 500,
+      message: "Todo failed for " + title,
+      ok: false,
     };
   }
+  revalidatePath("/add-server");
   return formState;
 };
 

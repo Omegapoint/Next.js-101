@@ -6,5 +6,5 @@ export type Todo = {
 };
 export type FormState = {
   message: string;
-  status: number;
+  ok: boolean;
 };

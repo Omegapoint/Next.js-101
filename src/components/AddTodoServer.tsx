@@ -9,7 +9,7 @@ import { FormState } from "@/types/todos";
 
 const initialState: FormState = {
   message: "",
-  status: 0,
+  ok: false,
 };
 const AddTodoServer = () => {
   const [formState, action] = useFormState(createTodo, initialState);
@@ -17,14 +17,15 @@ const AddTodoServer = () => {
 
   useEffect(() => {
     if (formState.message) {
-      if (formState.status == 200) {
+      console.log(formState);
+      if (formState.ok) {
         toast.success(formState.message);
       } else {
         toast.error(formState.message);
       }
       ref.current?.reset();
     }
-  }, [formState.status, formState.message]);
+  }, [formState]);
   return (
     <form ref={ref} className="flex gap-2 items-center" action={action}>
       <input
