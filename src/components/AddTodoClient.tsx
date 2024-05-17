@@ -1,9 +1,16 @@
 "use client";
 
-import { useState, useTransition, FormEvent, ChangeEvent } from "react";
+import {
+  useState,
+  useTransition,
+  FormEvent,
+  ChangeEvent,
+  Suspense,
+} from "react";
 import toast from "react-hot-toast";
 import { getRandomUUID } from "@/utils/generateUUID";
 import { FaPlus } from "react-icons/fa";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 const initState: Partial<Todo> = {
   userId: 1,

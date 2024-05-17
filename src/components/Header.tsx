@@ -22,13 +22,13 @@ const Header = () => {
           href="/add-client"
           className={`${LINK} ${pathname === "/add-client" ? ACTIVE_LINK : ""}`}
         >
-          Add Client
+          Add from Client
         </Link>
         <Link
           href="/add-server"
           className={`${LINK} ${pathname === "/add-server" ? ACTIVE_LINK : ""}`}
         >
-          Add Server
+          Add from Server
         </Link>
         <Link
           href="/todos"
