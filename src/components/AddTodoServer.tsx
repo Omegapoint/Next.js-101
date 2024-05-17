@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { SubmitButton } from "./SubmitButton";
+import SubmitButton from "./SubmitButton";
 import { createTodo } from "@/actions";
 import { useFormState } from "react-dom";
 import { toast } from "react-hot-toast";
