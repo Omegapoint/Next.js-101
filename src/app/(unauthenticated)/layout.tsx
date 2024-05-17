@@ -8,10 +8,12 @@ export const metadata: Metadata = {
 
 export default function LoginLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  if (cookies().get("authenticated")) redirect("/");
+}) {
+  if (cookies().get("authenticated")) {
+    redirect("http://localhost:8000/");
+  }
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div className="bg-gray-500 p-16">{children}</div>

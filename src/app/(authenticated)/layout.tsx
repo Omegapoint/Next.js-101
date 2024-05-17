@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 export default function Layout({
   children,
   todos,
-}: Readonly<{
+}: {
   children: React.ReactNode;
   todos: React.ReactNode;
-}>) {
+}) {
   return (
     <>
       <Header />

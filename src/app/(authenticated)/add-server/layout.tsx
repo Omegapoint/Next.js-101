@@ -1,13 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Add server",
+  title: "Add from server",
 };
 
-export default function Layout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return children;
 }

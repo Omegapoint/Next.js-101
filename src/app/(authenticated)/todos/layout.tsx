@@ -7,10 +7,10 @@ export const metadata: Metadata = {
 export default function LoginLayout({
   children,
   todos,
-}: Readonly<{
+}: {
   children: React.ReactNode;
   todos: React.ReactNode;
-}>) {
+}) {
   return (
     <>
       {children}

@@ -4,10 +4,6 @@ export const metadata: Metadata = {
   title: "Edit",
 };
 
-export default function Layout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return children;
 }
