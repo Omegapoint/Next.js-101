@@ -20,7 +20,7 @@ export const createTodo = async (formState: FormState, formData: FormData) => {
       }),
     });
     formState = {
-      message: "Toast created for " + title,
+      message: "Todo created for " + title,
       ok: true,
     };
   } catch (error) {
