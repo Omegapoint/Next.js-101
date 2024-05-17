@@ -16,7 +16,7 @@ export default function LoginLayout({
   }
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
-      <div className="bg-gray-500 p-16">{children}</div>
+      {children}
     </main>
   );
 }
