@@ -1,6 +1,10 @@
-type Todo = {
+type SimpleTodo = {
   userId: number;
-  id: string;
   title: string;
-  completed: boolean;
+  completed?: boolean;
+  id: string;
+};
+type FormState = {
+  message: string;
+  ok: boolean;
 };

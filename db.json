@@ -22,24 +22,73 @@
       "userId": 1,
       "title": "Write Code 💻",
       "id": "4",
-      "completed": false
+      "completed": true
     },
     {
       "id": "67ce",
       "userId": 1,
-      "title": "something"
+      "title": "something",
+      "completed": true
     },
     {
       "id": "890d26b9-3abd-4ae7-ac91-be3f2cd13c18",
       "userId": 1,
       "title": "Server stuff",
-      "completed": false
+      "completed": true
     },
     {
       "id": "45dd1816-8314-4e3a-98c2-6708d57684e7",
       "userId": 1,
       "title": "Hej hej",
+      "completed": true
+    },
+    {
+      "id": "9a9c3881b6f23a82964d6d4f631a3f01",
+      "userId": 1,
+      "title": "logo",
+      "completed": true
+    },
+    {
+      "id": "86779673b3ef4232906652aa38e08fa4",
+      "userId": 1,
+      "title": "asdads",
       "completed": false
+    },
+    {
+      "id": "d7b8cb248a0248d8ba00543eb40e2ba0",
+      "userId": 1,
+      "title": "test",
+      "completed": false
+    },
+    {
+      "id": "5e5c8976637a96b26b59e229a5149856",
+      "userId": 1,
+      "title": "asdad",
+      "completed": false
+    },
+    {
+      "id": "6060f972be59b2cc7a490bc777b42f64",
+      "userId": 1,
+      "title": "asdaa",
+      "completed": false
+    },
+    {
+      "id": "885d1bd0adb4f44f5290743fbeb4c5fc",
+      "userId": 1,
+      "title": "asdad",
+      "completed": true
+    },
+    {
+      "id": "a1d04df54d769519407e9efdde452d07",
+      "userId": 1,
+      "title": "asdasdasdad",
+      "completed": false
+    },
+    {
+      "id": "db89046b3c19acdbbb97e2308705c416",
+      "userId": 1,
+      "title": "adsadasd",
+      "completed": true
     }
   ]
 }

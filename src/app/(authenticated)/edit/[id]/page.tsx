@@ -1,6 +1,6 @@
 import Todo from "@/components/Todo";
-import fetchTodo from "@/lib/fetchTodo";
-import { notFound, redirect } from "next/navigation";
+import { getTodoById } from "@/services/todosService";
+import { redirect } from "next/navigation";
 
 export const revalidate = 0;
 
@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default async function page({ params: { id } }: Props) {
-  const todo = await fetchTodo(id);
+  const todo = await getTodoById(id);
 
   if (!todo) redirect("/");
 

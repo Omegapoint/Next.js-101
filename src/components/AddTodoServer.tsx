@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { SubmitButton } from "./SubmitButton";
+import SubmitButton from "./SubmitButton";
 import { createTodo } from "@/actions";
 import { useFormState } from "react-dom";
 import { toast } from "react-hot-toast";
-import { FormState } from "@/types/todos";
 
 const initialState: FormState = {
   message: "",
@@ -17,13 +16,12 @@ const AddTodoServer = () => {
 
   useEffect(() => {
     if (formState.message) {
-      console.log(formState);
       if (formState.ok) {
         toast.success(formState.message);
+        ref.current?.reset();
       } else {
         toast.error(formState.message);
       }
-      ref.current?.reset();
     }
   }, [formState]);
   return (

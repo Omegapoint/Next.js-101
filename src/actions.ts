@@ -3,7 +3,6 @@
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { getRandomUUID } from "./utils/generateUUID";
-import { FormState } from "./types/todos";
 import { revalidatePath } from "next/cache";
 
 export const createTodo = async (formState: FormState, formData: FormData) => {
@@ -31,6 +30,7 @@ export const createTodo = async (formState: FormState, formData: FormData) => {
     };
   }
   revalidatePath("/add-server");
+  revalidatePath("/todos");
   return formState;
 };
 
