@@ -1,9 +1,6 @@
 "use server";
 
-import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
 import { getRandomUUID } from "./utils/generateUUID";
-import { revalidatePath } from "next/cache";
 
 export const createTodo = async (formState: FormState, formData: FormData) => {
   await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -29,12 +26,5 @@ export const createTodo = async (formState: FormState, formData: FormData) => {
       ok: false,
     };
   }
-  revalidatePath("/add-server");
-  revalidatePath("/todos");
   return formState;
-};
-
-export const logOut = async () => {
-  cookies().delete("authenticated");
-  redirect("/login");
 };

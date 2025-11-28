@@ -1,24 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js 101
+
+This is workshop lab which should be done step by step as described in this readme.
+
+- [Next.js 101](#nextjs-101)
+  - [Prerequisites](#prerequisites)
+    - [Node.js](#nodejs)
+  - [Getting Started](#getting-started)
+  - [Learn More](#learn-more)
+  - [Deploy on Vercel](#deploy-on-vercel)
+
+## Prerequisites
+
+### Node.js
+
+**If nvm is _not_ already installed on your computer**
+
+Follow instruction on how to [install nvm here](https://github.com/nvm-sh/nvm/blob/master/README.md)
+
+**If already installed**
+
+These commands make use of the file [.nvmrc](.nvmrc)
+
+```bash
+nvm -v # Check wether its installed
+nvm install # Installing the repo-recommended node version
+nvm use
+```
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Install dependencies `npm install`
+2. Run the "database" `npm run db`
+3. Run the Next app `npm run dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 

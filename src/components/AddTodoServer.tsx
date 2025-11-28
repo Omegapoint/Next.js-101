@@ -1,17 +1,16 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import SubmitButton from "./SubmitButton";
 import { createTodo } from "@/actions";
-import { useFormState } from "react-dom";
+import { useActionState, useEffect, useRef } from "react";
 import { toast } from "react-hot-toast";
+import SubmitButton from "./SubmitButton";
 
 const initialState: FormState = {
   message: "",
   ok: false,
 };
 const AddTodoServer = () => {
-  const [formState, action] = useFormState(createTodo, initialState);
+  const [formState, action] = useActionState(createTodo, initialState);
   const ref = useRef<HTMLFormElement>(null);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 {
-  "name": "next.js-server-vs-client",
+  "name": "next.js-101",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,21 +10,21 @@
     "db": "json-server --watch db.json --port 8000"
   },
   "dependencies": {
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "^16.0.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.0.5",
     "json-server": "^1.0.0-beta.0",
     "postcss": "^8",
     "react-icons": "^4.8.0",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   }
 }

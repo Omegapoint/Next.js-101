@@ -1,16 +1,9 @@
 "use client";
 
-import {
-  useState,
-  useTransition,
-  FormEvent,
-  ChangeEvent,
-  Suspense,
-} from "react";
-import toast from "react-hot-toast";
 import { getRandomUUID } from "@/utils/generateUUID";
+import { ChangeEvent, FormEvent, useState, useTransition } from "react";
+import toast from "react-hot-toast";
 import { FaPlus } from "react-icons/fa";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 const initState: Partial<Todo> = {
   userId: 1,
@@ -33,6 +26,7 @@ export default function AddTodoClient() {
     setError("");
     setIsFetching(true);
 
+    // TODO: Här sker anropet rakt mot DB, det borde göras via en next-route för att undvika CORS
     const res = await fetch("http://localhost:8000/todos", {
       method: "POST",
       headers: {
