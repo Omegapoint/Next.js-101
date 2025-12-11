@@ -22,7 +22,7 @@ Follow instruction on how to [install nvm here](https://github.com/nvm-sh/nvm/bl
 These commands make use of the file [.nvmrc](.nvmrc)
 
 ```bash
-nvm -v # Check wether its installed
+nvm -v # Check wether nvm is installed
 nvm install # Installing the repo-recommended node version
 nvm use
 ```
