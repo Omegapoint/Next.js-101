@@ -1,6 +1,6 @@
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   console.log("------------- Middleware -------------");
   // TODO: intercept requests from the browser to authenticate them
 }

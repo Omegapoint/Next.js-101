@@ -1,12 +1,12 @@
 "use client";
 
-import { getRandomUUID } from "@/utils/generateUUID";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState, useTransition } from "react";
 import toast from "react-hot-toast";
 import { FaPlus } from "react-icons/fa";
+import { ToastLoader } from "./ToastLoader";
 
 const initState: Partial<Todo> = {
-  userId: 1,
   title: "",
   completed: false,
 };
@@ -17,30 +17,42 @@ export default function AddTodoClient() {
   const [error, setError] = useState<string>("");
   const [data, setData] = useState(initState);
   const isMutating = isFetching || isPending;
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const { title, userId, completed } = data;
-    const generatedID = getRandomUUID();
+    const { title, completed } = data;
+    const generatedID = crypto.randomUUID();
     setError("");
     setIsFetching(true);
 
     // TODO: Här sker anropet rakt mot DB, det borde göras via en next-route för att undvika CORS
-    const res = await fetch("http://localhost:8000/todos", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: title,
-        userId: userId,
-        completed: completed,
-        id: generatedID,
-      }),
+
+    const res = new Promise<Response>((resolve) =>
+      setTimeout(() => {
+        fetch("http://localhost:8000/todos", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: title,
+            completed: completed,
+            id: generatedID,
+          }),
+        }).then((res) => resolve(res));
+      }, 3000)
+    );
+
+    await toast.promise(res, {
+      error: "Something went wrong",
+      success: "Todo added",
+      loading: <ToastLoader loadingMessage="Lägger till todo" />,
     });
-    if (res.ok) {
-      toast.success("Todo added");
+    if ((await res).ok) {
+      setData(initState);
+      router.refresh();
     } else {
       setError("We encountered an error during creating the todo");
       setIsFetching(false);

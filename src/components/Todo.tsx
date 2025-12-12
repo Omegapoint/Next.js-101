@@ -1,12 +1,19 @@
 "use client";
 
-import { FaTrash } from "react-icons/fa";
-import { useRouter } from "next/navigation";
-import { useState, useTransition, ChangeEvent, MouseEvent } from "react";
+import { assignToMe } from "@/actions";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { ChangeEvent, MouseEvent, useState, useTransition } from "react";
 import toast from "react-hot-toast";
+import { FaTrash } from "react-icons/fa";
 
-export default function Todo(todo: Todo) {
+export default function Todo({
+  todo,
+  currentUser,
+}: {
+  todo: Todo;
+  currentUser: string;
+}) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isFetching, setIsFetching] = useState(false);
@@ -35,6 +42,18 @@ export default function Todo(todo: Todo) {
       // Refresh the current route and fetch new data
       // from the server without losing
       // client-side browser or React state.
+      router.refresh();
+    });
+  };
+
+  const handleAssignToMe = async () => {
+    setIsFetching(true);
+
+    const result = await assignToMe(todo.id);
+
+    setIsFetching(false);
+
+    startTransition(() => {
       router.refresh();
     });
   };
@@ -77,6 +96,16 @@ export default function Todo(todo: Todo) {
       >
         <Link href={`/edit/${todo.id}`}>{todo.title}</Link>
       </label>
+
+      {!todo.assignedTo && (
+        <button
+          onClick={handleAssignToMe}
+          disabled={isPending}
+          className="p-3 text-xl max-w-xs hover:cursor-pointer hover:text-green-800"
+        >
+          Assign to me
+        </button>
+      )}
       <div className="flex items-center gap-4">
         <input
           type="checkbox"

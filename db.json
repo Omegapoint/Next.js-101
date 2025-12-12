@@ -1,34 +1,28 @@
 {
   "todos": [
     {
-      "userId": 1,
+      "assignedTo": "Arvid",
       "title": "Wave hello! 👋",
       "completed": false,
       "id": "1"
     },
     {
-      "userId": 1,
+      "assignedTo": null,
       "title": "Get Coffee ☕☕☕",
       "completed": false,
       "id": "2"
     },
     {
-      "userId": 1,
+      "assignedTo": null,
       "title": "Go to Work ⚒",
       "completed": false,
       "id": "3"
     },
     {
-      "userId": 1,
+      "assignedTo": null,
       "title": "Write Code 💻",
       "id": "4",
       "completed": true
-    },
-    {
-      "id": "ef0d7cacaba7dd9154573f317d141ff6",
-      "userId": 1,
-      "title": "Newest todo",
-      "completed": false
     }
   ]
 }
