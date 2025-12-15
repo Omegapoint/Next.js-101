@@ -13,19 +13,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  todos,
 }: {
   children: React.ReactNode;
-  todos: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <Toaster />
         <Header />
+
         <main className="flex min-h-screen flex-col items-center p-24">
           {children}
-          {todos}
         </main>
       </body>
     </html>

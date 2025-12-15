@@ -1,7 +1,6 @@
 "use server";
 
 import { randomUUID } from "crypto";
-import { getUsername } from "./utils/getUsername";
 
 export const createTodo = async (formState: FormState, formData: FormData) => {
   await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -29,8 +28,9 @@ export const createTodo = async (formState: FormState, formData: FormData) => {
   return formState;
 };
 
-export const assignToMe = async (
-  todoId: string
+export const assignTodo = async (
+  todoId: string,
+  assignTo: string | null
 ): Promise<{ success: boolean; error: any }> => {
   let result: { success: boolean; error: any } = {
     success: true,
@@ -43,7 +43,7 @@ export const assignToMe = async (
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        assignedTo: getUsername(),
+        assignedTo: assignTo,
       }),
     });
     result = { success: true, error: undefined };

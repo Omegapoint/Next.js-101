@@ -1,28 +1,46 @@
 {
   "todos": [
     {
-      "assignedTo": "Arvid",
+      "assignedTo": "Jonathan",
       "title": "Wave hello! 👋",
       "completed": false,
       "id": "1"
     },
     {
-      "assignedTo": null,
+      "assignedTo": "Hossam",
       "title": "Get Coffee ☕☕☕",
       "completed": false,
       "id": "2"
     },
     {
-      "assignedTo": null,
-      "title": "Go to Work ⚒",
-      "completed": false,
-      "id": "3"
-    },
-    {
-      "assignedTo": null,
+      "assignedTo": "Hossam",
       "title": "Write Code 💻",
       "id": "4",
       "completed": true
+    },
+    {
+      "id": "719d8138-44e7-4d2c-9f51-dd0123d3e928",
+      "title": "Dricka öl 🍻",
+      "completed": false
+    },
+    {
+      "id": "22776250-d363-4cba-8fef-4f02d3e9c272",
+      "title": "Lyssna på musik",
+      "completed": false
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Arvid"
+    },
+    {
+      "id": 2,
+      "username": "Hossam"
+    },
+    {
+      "id": 3,
+      "username": "Jonathan"
     }
   ]
 }

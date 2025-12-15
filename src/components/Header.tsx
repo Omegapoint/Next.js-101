@@ -17,6 +17,12 @@ const Header = () => {
           Home
         </Link>
         <Link
+          href="/dashboard"
+          className={`${LINK} ${pathname === "/dashboard" ? ACTIVE_LINK : ""}`}
+        >
+          Dashboard
+        </Link>
+        <Link
           href="/add-client"
           className={`${LINK} ${pathname === "/add-client" ? ACTIVE_LINK : ""}`}
         >
