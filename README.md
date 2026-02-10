@@ -6,6 +6,7 @@ This is workshop lab which should be done step by step as described in this read
   - [Prerequisites](#prerequisites)
     - [Node.js](#nodejs)
   - [Getting Started](#getting-started)
+  - [Guides](#guides)
   - [Learn More](#learn-more)
   - [Deploy on Vercel](#deploy-on-vercel)
 
@@ -34,6 +35,17 @@ nvm use
 3. Run the Next app `npm run dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Guides
+
+This repository includes comprehensive guides for Next.js features:
+
+- **[Parallel Routes Guide](./PARALLEL_ROUTES_GUIDE.md)** - A complete guide on how to use Parallel Routes in Next.js, including:
+  - What parallel routes are and why they're useful
+  - Step-by-step implementation instructions
+  - Real examples from this codebase (dashboard and todos)
+  - Advanced patterns and best practices
+  - Troubleshooting common issues
 
 ## Learn More
 
